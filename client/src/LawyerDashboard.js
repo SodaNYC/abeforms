@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import NestedModal from "./NestedModal.js";
+import abeLogo from "./abeLogo.png";
 import "./App.css";
 import {
   Card,
@@ -10,6 +11,7 @@ import {
   Modal,
   Menu,
   Segment,
+  Label,
   Header,
   ModalActions,
 } from "semantic-ui-react";
@@ -256,7 +258,11 @@ class LawyerDashboard extends Component {
   };
 
   // this.setState({userEmail: this.props.location.state.email})
+  state = { activeItem: "home" };
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
   render() {
+    const { activeItem } = this.state;
     try {
       const { lawyerEmail, selectedTime, clientEmail } = this.state;
       console.log("HERE");
@@ -268,6 +274,36 @@ class LawyerDashboard extends Component {
     return (
       <Container>
         <div className="App">
+          <Menu pointing secondary>
+            <img src={abeLogo} className="logo"></img>
+            <Menu.Item
+              name="dashboard"
+              active={activeItem === "dashboard"}
+              onClick={this.handleItemClick}
+            />
+            <Menu.Item
+              name="profile"
+              active={activeItem === "profile"}
+              onClick={this.handleItemClick}
+            />
+            <Menu.Item
+              name="inbox"
+              active={activeItem === "inbox"}
+              onClick={this.handleItemClick}
+            />
+            <div className="inboxLogo">
+              <Label circular size="mini">
+                0
+              </Label>
+            </div>
+            <Menu.Menu position="right">
+              <Menu.Item
+                name="logout"
+                active={activeItem === "logout"}
+                onClick={this.handleItemClick}
+              />
+            </Menu.Menu>
+          </Menu>
           <h1>Available Cases</h1>
           <div className="row">
             <Card.Group>{this.state.open_items}</Card.Group>
