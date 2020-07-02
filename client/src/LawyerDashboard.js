@@ -8,6 +8,8 @@ import {
   Image,
   Button,
   Modal,
+  Menu,
+  Segment,
   Header,
   ModalActions,
 } from "semantic-ui-react";
@@ -33,8 +35,6 @@ class LawyerDashboard extends Component {
     this.getMyCase();
   }
 
-
-
   scheduleMeeting = () => {
     //TODO: This part, Posting info
     const { selectedTime } = this.state;
@@ -49,116 +49,121 @@ class LawyerDashboard extends Component {
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
-            
           },
         }
       )
       .then((data) => {
         console.log(userEmail);
         console.log(selectedTime);
-        console.log(clientEmail)
+        console.log(clientEmail);
       });
   };
 
   getOpenCase = () => {
-    console.log("Here")
-    console.log(this.state)
-    axios.get(endpoint + "/lawyerdashboard/api/opencases",{headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },}).then((res) => {
-      
-      console.log(res);
-      if (res.data) {
-        console.log("setting open cases info");
-        this.setState({
-          open_items: res.data.map((item) => {
-            return (
-              <Card>
-                <Card.Content>
-                  <Image
-                    floated="right"
-                    size="mini"
-                    src="https://react.semantic-ui.com/images/avatar/large/molly.png"
-                  />
-                  <Card.Header>
-                    {item.firstname + " " + item.lastname}
-                  </Card.Header>
-                  <Card.Meta>{item.stateofissue}</Card.Meta>
-                  <Card.Description>{item.description}</Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                  <Modal
-                    trigger={
-                      <Button basic color="green" content="Green">
-                        Details
-                      </Button>
-                    }
-                  >
-                    <Modal.Header>Some Details Go here</Modal.Header>
-                    <Modal.Content image>
-                      <Image
-                        wrapped
-                        size="medium"
-                        src="https://react.semantic-ui.com/images/avatar/large/rachel.png"
-                      />
-                      <Modal.Description>
-                        <Header>Client Details</Header>
-                        <p>
-                          Name: {item.firstname} {item.lastname}
-                          <br></br>
-                          Description: {item.description} <br></br>
-                          Location: {item.stateofissue} <br></br>
-                          Available Times: Times go here...
-                        </p>
-                      </Modal.Description>
-                    </Modal.Content>
-                    <Modal.Actions>
-                      <Button basic color="red">
-                        Close
-                      </Button>
-                      <Modal
-                        trigger={
-                          <Button basic color="green">
-                            Accept
-                          </Button>
-                        }
-                        basic
-                        size="small"
-                      >
-                        <Header icon="archive" content="Archive Old Messages" />
-                        <Modal.Content>
+    console.log("Here");
+    console.log(this.state);
+    axios
+      .get(endpoint + "/lawyerdashboard/api/opencases", {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        if (res.data) {
+          console.log("setting open cases info");
+          this.setState({
+            open_items: res.data.map((item) => {
+              return (
+                <Card>
+                  <Card.Content>
+                    <Image
+                      floated="right"
+                      size="mini"
+                      src="https://react.semantic-ui.com/images/avatar/large/molly.png"
+                    />
+                    <Card.Header>
+                      {item.firstname + " " + item.lastname}
+                    </Card.Header>
+                    <Card.Meta>{item.stateofissue}</Card.Meta>
+                    <Card.Description>{item.description}</Card.Description>
+                  </Card.Content>
+                  <Card.Content extra>
+                    <Modal
+                      trigger={
+                        <Button basic color="green" content="Green">
+                          Details
+                        </Button>
+                      }
+                    >
+                      <Modal.Header>Some Details Go here</Modal.Header>
+                      <Modal.Content image>
+                        <Image
+                          wrapped
+                          size="medium"
+                          src="https://react.semantic-ui.com/images/avatar/large/rachel.png"
+                        />
+                        <Modal.Description>
+                          <Header>Client Details</Header>
                           <p>
-                            By accepting this, you agree to the terms and
-                            conditions.
+                            Name: {item.firstname} {item.lastname}
+                            <br></br>
+                            Description: {item.description} <br></br>
+                            Location: {item.stateofissue} <br></br>
+                            Available Times: Times go here...
                           </p>
-                        </Modal.Content>
-                        <Modal.Actions>
-                          <Button
-                            basic
-                            color="green"
-                            onClick={() => this.caseComplete(item._id)}
-                          >
-                            Accept
-                          </Button>
-                          <Button basic color="red">
-                            Decline
-                          </Button>
-                        </Modal.Actions>
-                      </Modal>
-                    </Modal.Actions>
-                  </Modal>
-                </Card.Content>
-              </Card>
-            );
-          }),
-        });
-        console.log(this.setState);
-      } else {
-        this.setState({
-          open_items: [],
-        });
-      }
-    });
+                        </Modal.Description>
+                      </Modal.Content>
+                      <Modal.Actions>
+                        <Button basic color="red">
+                          Close
+                        </Button>
+                        <Modal
+                          trigger={
+                            <Button basic color="green">
+                              Accept
+                            </Button>
+                          }
+                          basic
+                          size="small"
+                        >
+                          <Header
+                            icon="archive"
+                            content="Archive Old Messages"
+                          />
+                          <Modal.Content>
+                            <p>
+                              By accepting this, you agree to the terms and
+                              conditions.
+                            </p>
+                          </Modal.Content>
+                          <Modal.Actions>
+                            <Button
+                              basic
+                              color="green"
+                              onClick={() => this.caseComplete(item._id)}
+                            >
+                              Accept
+                            </Button>
+                            <Button basic color="red">
+                              Decline
+                            </Button>
+                          </Modal.Actions>
+                        </Modal>
+                      </Modal.Actions>
+                    </Modal>
+                  </Card.Content>
+                </Card>
+              );
+            }),
+          });
+          console.log(this.setState);
+        } else {
+          this.setState({
+            open_items: [],
+          });
+        }
+      });
   };
   caseComplete = (id) => {
     axios
@@ -255,7 +260,7 @@ class LawyerDashboard extends Component {
     try {
       const { lawyerEmail, selectedTime, clientEmail } = this.state;
       console.log("HERE");
-      console.log(this.state)
+      console.log(this.state);
     } catch (e) {
       return <Redirect to={"/lawyerdashboard/sign_in"} />; //Check if user is authenticated
     }
