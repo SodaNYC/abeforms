@@ -304,12 +304,12 @@ class LawyerDashboard extends Component {
               />
             </Menu.Menu>
           </Menu>
-          <h1>Available Cases</h1>
+          <Header as="h1">Available Cases</Header>
           <div className="row">
             <Card.Group>{this.state.open_items}</Card.Group>
           </div>
 
-          <h1>My Cases</h1>
+          <Header as="h1">My Cases</Header>
           <div className="row">
             <Card.Group>{this.state.my_items}</Card.Group>
           </div>
