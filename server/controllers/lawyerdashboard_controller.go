@@ -52,6 +52,23 @@ func CreateMeeting(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+	var meetingInfo models.Lawyers
+	if err := json.NewDecoder(r.Body).Decode(&lawyerInfo); err != nil {
+		apiErr := &utils.ApplicationError{
+			Message:    "decoding lawyer info failed",
+			StatusCode: http.StatusInternalServerError,
+			Code:       "server_error",
+		}
+		jsonValue, err := json.Marshal(apiErr)
+		if err != nil {
+			log.Println(err)
+		}
+		w.WriteHeader(apiErr.StatusCode)
+		w.Write(jsonValue)
+		log.Println("Something came up wrong while decoding lawyer info")
+		return
+	}
 	user := models.Lawyers{}
 	user = r.Context().Value(utils.UserKey("user")).(models.Lawyers)
 

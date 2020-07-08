@@ -220,17 +220,6 @@ class LawyerDashboard extends Component {
                         </Modal.Description>
                       </Modal.Content>
                       <ModalActions>
-                        {/*<Button*/}
-                        {/*  basic*/}
-                        {/*  color="purple"*/}
-                        {/*  content="Purple"*/}
-                        {/*  onClick={() => {*/}
-                        {/*    this.scheduleMeeting();*/}
-                        {/*    clientEmail = item.emailaddress;*/}
-                        {/*  }}*/}
-                        {/*>*/}
-                        {/*  Schedule a zoom meeting*/}
-                        {/*</Button>*/}
                         <NestedModal />
                       </ModalActions>
                     </Modal>

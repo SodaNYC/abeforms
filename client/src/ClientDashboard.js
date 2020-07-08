@@ -11,6 +11,8 @@ import {
     ModalActions,
 } from "semantic-ui-react";
 import { Redirect } from "react-router-dom";
+
+
 let endpoint = "http://localhost:8080";
 var userEmail;
 var clientEmail;
@@ -181,6 +183,9 @@ class ClientDashboard extends Component {
         return (
             <Container>
                 <div className="App">
+                <Button basic color="violet" content="Violet" href= "/client">
+                                                    New Case
+                                                </Button>
                     <h1>Unassigned Cases</h1>
                     <div className="row">
                         <Card.Group>{this.state.unassigned_items}</Card.Group>

@@ -78,3 +78,4 @@ func GetAssignedCase(user models.Clients) ([]primitive.M, *utils.ApplicationErro
 	}
 	return assignedCases, nil
 }
+
