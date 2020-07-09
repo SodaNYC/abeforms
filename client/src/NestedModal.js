@@ -37,51 +37,52 @@ class NestedModal extends Component {
     const { open } = this.state;
 
     return (
-      <Modal
-        open={open}
-        onOpen={this.open}
-        onClose={this.close}
-        size="small"
-        trigger={
-          <Button primary icon>
-            Schedule a Zoom meeting <Icon name="right chevron" />
-          </Button>
-        }
-      >
-        <Modal.Header>Schedule a Zoom Meeting with your Client</Modal.Header>
-        <Modal.Content>
-          <Form>
-            <Form.Field>
-              <label>Preferred Date</label>
-              <DayPicker
-                className="preferredDate"
-                disabledDays={{ daysOfWeek: [0, 6] }}
-                onDayClick={this.handleDayClick}
-                selectedDays={this.state.selectedDay}
-              />
-              {this.state.selectedDay ? (
-                <p>
-                  You selected {this.state.selectedDay.toLocaleDateString()}
-                </p>
-              ) : (
-                <p>Please select a day.</p>
-              )}
-              {/*<input
+      <div>
+        <Modal
+          open={open}
+          onOpen={this.open}
+          onClose={this.close}
+          size="small"
+          trigger={
+            <Button primary icon>
+              Schedule a Zoom meeting <Icon name="right chevron" />
+            </Button>
+          }
+        >
+          <Modal.Header>Schedule a Zoom Meeting with your Client</Modal.Header>
+          <Modal.Content>
+            <Form>
+              <Form.Field>
+                <label>Preferred Date</label>
+                <DayPicker
+                  className="preferredDate"
+                  disabledDays={{ daysOfWeek: [0, 6] }}
+                  onDayClick={this.handleDayClick}
+                  selectedDays={this.state.selectedDay}
+                />
+                {this.state.selectedDay ? (
+                  <p>
+                    You selected {this.state.selectedDay.toLocaleDateString()}
+                  </p>
+                ) : (
+                  <p>Please select a day.</p>
+                )}
+                {/*<input
                 type="date"
                 className="preferredDate"
                 placeholder="Preferred Date"
               />*/}
-            </Form.Field>
-            <Form.Field>
-              <label>Preferred Time (First Choice)</label>
-              <TimePicker
-                className="firstTime"
-                use12Hours
-                minuteStep={15}
-                format="h:mm a"
-                style={{ width: 140 }}
-              />
-              {/*  <select type="checkbox" className="timesFirst">
+              </Form.Field>
+              <Form.Field>
+                <label>Preferred Time (First Choice)</label>
+                <TimePicker
+                  className="firstTime"
+                  use12Hours
+                  minuteStep={15}
+                  format="h:mm a"
+                  style={{ width: 140 }}
+                />
+                {/*  <select type="checkbox" className="timesFirst">
                 <option value="8">8:00 AM</option>
                 <option value="9">9:00 AM</option>
                 <option value="10">10:00 AM</option>
@@ -91,17 +92,17 @@ class NestedModal extends Component {
                 <option value="2">2:00 PM</option>
                 <option value="3">3:00 PM</option>
               </select>*/}
-            </Form.Field>
-            <Form.Field>
-              <label>Preferred Time (Second Choice)</label>
-              <TimePicker
-                className="firstTime"
-                use12Hours
-                minuteStep={15}
-                format="h:mm a"
-                style={{ width: 140 }}
-              />
-              {/*<select type="checkbox" className="timesSecond">
+              </Form.Field>
+              <Form.Field>
+                <label>Preferred Time (Second Choice)</label>
+                <TimePicker
+                  className="firstTime"
+                  use12Hours
+                  minuteStep={15}
+                  format="h:mm a"
+                  style={{ width: 140 }}
+                />
+                {/*<select type="checkbox" className="timesSecond">
                 <option value="8">8:00 AM</option>
                 <option value="9">9:00 AM</option>
                 <option value="10">10:00 AM</option>
@@ -111,17 +112,17 @@ class NestedModal extends Component {
                 <option value="2">2:00 PM</option>
                 <option value="3">3:00 PM</option>
               </select> */}
-            </Form.Field>
-            <Form.Field>
-              <label>Preferred Time (Third Choice)</label>
-              <TimePicker
-                className="firstTime"
-                use12Hours
-                minuteStep={15}
-                format="h:mm a"
-                style={{ width: 140 }}
-              />
-              {/*       <select type="checkbox" className="timesThird">
+              </Form.Field>
+              <Form.Field>
+                <label>Preferred Time (Third Choice)</label>
+                <TimePicker
+                  className="firstTime"
+                  use12Hours
+                  minuteStep={15}
+                  format="h:mm a"
+                  style={{ width: 140 }}
+                />
+                {/*       <select type="checkbox" className="timesThird">
                 <option value="8">8:00 AM</option>
                 <option value="9">9:00 AM</option>
                 <option value="10">10:00 AM</option>
@@ -131,39 +132,64 @@ class NestedModal extends Component {
                 <option value="2">2:00 PM</option>
                 <option value="3">3:00 PM</option>
               </select> */}
-            </Form.Field>
-            <Form.Field>
-              <Header as="h4">What to Expect for your Consultation</Header>
-              <ul>
-                <li>
-                  You will be able to speak with your client through Zoom for
-                  30-60 minutes
-                </li>
+              </Form.Field>
+              <Form.Field>
+                <Header as="h4">What to Expect for your Consultation</Header>
+                <ul>
+                  <li>
+                    You will be able to speak with your client through Zoom for
+                    30-60 minutes
+                  </li>
 
-                <li>
-                  There will be a 5-minute period at the end of the consultation
-                  for your client to ask questions
-                </li>
-                <li>
-                  The consultation will be recorded for your client's future
-                  reference
-                </li>
-              </ul>
-            </Form.Field>
+                  <li>
+                    There will be a 5-minute period at the end of the
+                    consultation for your client to ask questions
+                  </li>
+                  <li>
+                    The consultation will be recorded for your client's future
+                    reference
+                  </li>
+                </ul>
+              </Form.Field>
 
-            <Form.Field>
-              <Button
-                floated="right"
-                color="blue"
-                type="submit"
-                icon="check"
-                content="Submit"
-                onClick={this.close}
-              />
-            </Form.Field>
-          </Form>
-        </Modal.Content>
-      </Modal>
+              <Form.Field>
+                <Button
+                  floated="right"
+                  color="blue"
+                  type="submit"
+                  icon="check"
+                  content="Submit"
+                  onClick={this.close}
+                />
+              </Form.Field>
+            </Form>
+          </Modal.Content>
+        </Modal>
+
+        <Modal
+          size="small"
+          trigger={
+            <Button primary icon>
+              My Meeting Time
+            </Button>
+          }
+        >
+          <Modal.Header>Meeting Information</Modal.Header>
+          <Modal.Content>
+            {this.state.selectedDay ? (
+              <div>
+                <p>
+                  Scheduled Date: {this.state.selectedDay.toLocaleDateString()}
+                </p>
+                <p>Scheduled Time: 00:00</p>
+                <p>Zoom Link: www.zoom.com/example</p>
+              </div>
+            ) : (
+              <p>You haven't scheduled a meeting with this client.</p>
+            )}
+          </Modal.Content>
+        </Modal>
+      </div>
     );
   }
 }
