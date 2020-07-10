@@ -20,7 +20,7 @@ const timeOptions = [
         value: 'Time3',
     },
 ]
-const number = 1; //the number in the inbox is here
+const number = 1; //the number in the inbox is here, pick number 0 and 1 will run different pop up page
 const ModalExampleShorthand = () => number>0? ( //when number in the inbox is greater than 0
 
     <Modal trigger={<Button>Inbox
