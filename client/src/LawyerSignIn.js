@@ -49,7 +49,7 @@ class LawyerSignIn extends Component {
       return (
           <Redirect
               to={{
-                pathname: "/lawyerdashboard",
+                pathname: "/lawyerprofile",
               }}
           />
       );

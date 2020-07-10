@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import abeLogo from "./abeLogo.png";
 import "./App.css";
-import Inbox from "./inboxPopup"
+import Inbox from "./inboxPopupForClients"
 import {
   Card,
   Container,
@@ -198,28 +198,23 @@ class ClientDashboard extends Component {
               name="dashboard"
               active={activeItem === "dashboard"}
               onClick={this.handleItemClick}
+              href='/clientdashboard'
             />
             <Menu.Item
               name="profile"
               active={activeItem === "profile"}
               onClick={this.handleItemClick}
+              href='/ClientProfile'
             />
-            {/*<Menu.Item*/}
-            {/*  // name="inbox"*/}
-            {/*  // active={activeItem === "inbox"}*/}
-            {/*  // onClick={this.handleItemClick}*/}
-            {/*/>*/}
+
             <Inbox />
-            <div className="inboxLogo">
-              <Label circular size="mini">
-                0
-              </Label>
-            </div>
+
             <Menu.Menu position="right">
               <Menu.Item
                 name="logout"
                 active={activeItem === "logout"}
                 onClick={this.handleItemClick}
+                href='/'
               />
             </Menu.Menu>
           </Menu>

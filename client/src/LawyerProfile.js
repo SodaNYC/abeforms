@@ -3,6 +3,7 @@ import "./App.css";
 import {Label, Menu, Card, Image, Icon, List, Container} from "semantic-ui-react";
 import abeLogo from "./abeLogo.png";
 import avatar from "./avatar.png"
+import Inbox from "./inboxPopupForLawyers";
 
 class LawyerProfile extends Component{
     state = {}
@@ -20,27 +21,23 @@ class LawyerProfile extends Component{
                     name="dashboard"
                     active={activeItem === "dashboard"}
                     onClick={this.handleItemClick}
+                    href='/lawyerdashboard'
                 />
                 <Menu.Item
                     name="profile"
                     active={activeItem === "profile"}
                     onClick={this.handleItemClick}
+                    href='/lawyerprofile'
                 />
-                <Menu.Item
-                    name="inbox"
-                    // active={activeItem === "inbox"}
-                    onClick={this.handleItemClick}
-                />
-                <div className="inboxLogo">
-                    <Label circular size="mini">
-                        0
-                    </Label>
-                </div>
+
+                <Inbox />
+
                 <Menu.Menu position="right">
                     <Menu.Item
                         name="logout"
                         active={activeItem === "logout"}
                         onClick={this.handleItemClick}
+                        href='/'
                     />
                 </Menu.Menu>
             </Menu>
@@ -58,10 +55,6 @@ class LawyerProfile extends Component{
 
 
                     <List>
-                        <List.Item>
-                            <List.Icon name='user' />
-                            <List.Content>First Name Last Name</List.Content>
-                        </List.Item>
 
                         <List.Item>
                             <List.Icon name='phone' />

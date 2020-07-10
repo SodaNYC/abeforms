@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import NestedModal from "./NestedModal.js";
+import Inbox from "./inboxPopupForLawyers"
 import abeLogo from "./abeLogo.png";
 import "./App.css";
 import {
@@ -238,7 +239,9 @@ class LawyerDashboard extends Component {
                         {/*>*/}
                         {/*  Schedule a zoom meeting*/}
                         {/*</Button>*/}
+
                         <NestedModal />
+
                       </ModalActions>
                     </Modal>
                   </div>
@@ -274,36 +277,35 @@ class LawyerDashboard extends Component {
     return (
       <Container>
         <div className="App">
+
           <Menu pointing secondary>
             <img src={abeLogo} className="logo"></img>
             <Menu.Item
               name="dashboard"
               active={activeItem === "dashboard"}
               onClick={this.handleItemClick}
+              href='/lawyerdashboard'
             />
             <Menu.Item
               name="profile"
               active={activeItem === "profile"}
               onClick={this.handleItemClick}
+              href='/lawyerprofile'
             />
-            <Menu.Item
-              name="inbox"
-              active={activeItem === "inbox"}
-              onClick={this.handleItemClick}
-            />
-            <div className="inboxLogo">
-              <Label circular size="mini">
-                0
-              </Label>
-            </div>
+
+            <Inbox />
+
             <Menu.Menu position="right">
               <Menu.Item
                 name="logout"
                 active={activeItem === "logout"}
                 onClick={this.handleItemClick}
+                href='/'
               />
             </Menu.Menu>
           </Menu>
+
+
           <Header as="h1">Available Cases</Header>
           <div className="row">
             <Card.Group>{this.state.open_items}</Card.Group>

@@ -47,6 +47,7 @@ class NestedModal extends Component {
             <Button primary icon>
               Schedule a Zoom meeting <Icon name="right chevron" />
             </Button>
+
           }
         >
           <Modal.Header>Schedule a Zoom Meeting with your Client</Modal.Header>
