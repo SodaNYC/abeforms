@@ -15,6 +15,8 @@ import {
   ModalActions,
 } from "semantic-ui-react";
 import { Redirect } from "react-router-dom";
+
+
 let endpoint = "http://localhost:8080";
 var userEmail;
 var clientEmail;
@@ -175,23 +177,36 @@ class ClientDashboard extends Component {
     });
   };
 
+
   // this.setState({userEmail: this.props.location.state.email})
   state = { activeItem: "home" };
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
-  render() {
-    const { activeItem } = this.state;
-    try {
-      const { lawyerEmail, selectedTime, clientEmail } = this.state;
-      console.log(this.state);
-      console.log("HERE");
-    } catch (e) {
-      return <Redirect to={"/clientdashboard/sign_in"} />; //Check if user is authenticated
-    }
+    // this.setState({userEmail: this.props.location.state.email})
+handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+    render() {
+        const { activeItem } = this.state;
+        try {
+            const { lawyerEmail, selectedTime, clientEmail } = this.state;
+            console.log(this.state);
+            console.log("HERE");
+        } catch (e) {
+            return <Redirect to={"/clientdashboard/sign_in"} />; //Check if user is authenticated
+        }
+
+
+
+
 
     return (
       <Container>
         <div className="App">
+                    <Button basic color="violet" content="Violet" href= "/client">
+                    New Case
+                    </Button>
+                    <h1>Unassigned Cases</h1>
+                    <div className="row">
+                    <Card.Group>{this.state.unassigned_items}</Card.Group>
+                    </div>
           <Menu pointing secondary>
             <img src={abeLogo} className="logo"></img>
             <Menu.Item
