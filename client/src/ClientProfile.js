@@ -30,6 +30,13 @@ class ClientProfile extends Component{
                             href='/ClientProfile'
                         />
 
+                        <Menu.Item
+                            name="caseForm"
+                            active={activeItem === "caseForm"}
+                            onClick={this.handleItemClick}
+                            href='/client'
+                        />
+
                         <Inbox />
 
                         <Menu.Menu position="right">

@@ -54,7 +54,7 @@ func CreateMeeting(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
 	var meetingInfo models.Lawyers
-	if err := json.NewDecoder(r.Body).Decode(&lawyerInfo); err != nil {
+	if err := json.NewDecoder(r.Body).Decode(&meetingInfo); err != nil {
 		apiErr := &utils.ApplicationError{
 			Message:    "decoding lawyer info failed",
 			StatusCode: http.StatusInternalServerError,

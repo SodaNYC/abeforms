@@ -200,13 +200,6 @@ handleItemClick = (e, { name }) => this.setState({ activeItem: name });
     return (
       <Container>
         <div className="App">
-                    <Button basic color="violet" content="Violet" href= "/client">
-                    New Case
-                    </Button>
-                    <h1>Unassigned Cases</h1>
-                    <div className="row">
-                    <Card.Group>{this.state.unassigned_items}</Card.Group>
-                    </div>
           <Menu pointing secondary>
             <img src={abeLogo} className="logo"></img>
             <Menu.Item
@@ -221,6 +214,14 @@ handleItemClick = (e, { name }) => this.setState({ activeItem: name });
               onClick={this.handleItemClick}
               href='/ClientProfile'
             />
+
+            <Menu.Item
+                name="caseForm"
+                active={activeItem === "caseForm"}
+                onClick={this.handleItemClick}
+                href='/client'
+            />
+
 
             <Inbox />
 
