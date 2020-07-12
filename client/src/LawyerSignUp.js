@@ -233,7 +233,7 @@ class LawyerSignUp extends Component {
                   <div className="form-group">
                     <h5>Bio:</h5>
                     <div>
-                      <input
+                      <textarea
                           type="text"
                           className="form-control"
                           placeholder="Enter your bio here"
