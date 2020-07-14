@@ -11,6 +11,8 @@ import LawyerSignIn from "./LawyerSignIn"
 import ClientSignUp from "./ClientSignUp"
 import ClientSignIn from "./ClientSignIn"
 import LandingPage from "./landing"
+import LawyerProfile from "./LawyerProfile"
+import ClientProfile from "./ClientProfile"
 
 import {
     BrowserRouter as Router,
@@ -32,6 +34,8 @@ function App() {
                 <Route exact path="/clientdashboard/sign_up" component = {ClientSignUp} />
                 <Route exact path="/lawyerdashboard" component = {LawyerDashboard} />
                 <Route exact path="/clientdashboard" component = {ClientDashboard} />
+                <Route exact path="/lawyerprofile" component = {LawyerProfile} />
+                <Route exact path="/clientprofile" component = {ClientProfile} />
 
             </Switch>
         </Router>

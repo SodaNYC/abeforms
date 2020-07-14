@@ -171,16 +171,31 @@ class LawyerSignUp extends Component {
                   </div>
 
                   <div class="form-group">
-                    <h5>Phone Number:</h5>
+                    <h5>Cell Phone Number:</h5>
                     <div>
                       <input
                           type="text"
                           class="form-control"
-                          placeholder="Enter phone number"
-                          name="PhoneNumber"
-                          id="phoneNumber"
+                          placeholder="Enter cell phone number"
+                          name="CellPhoneNumber"
+                          id="CellPhoneNumber"
                           onChange={this.handleChange}
-                          value={PhoneNumber || ""}
+                          // value={CellPhoneNumber || ""}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <h5>Office Phone Number:</h5>
+                    <div>
+                      <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Enter office phone number"
+                          name="OfficePhoneNumber"
+                          id="OfficePhoneNumber"
+                          onChange={this.handleChange}
+                          // value={OfficePhoneNumber || ""}
                       />
                     </div>
                   </div>
@@ -215,6 +230,46 @@ class LawyerSignUp extends Component {
                     </div>
                   </div>
 
+                  <div className="form-group">
+                    <h5>Bio:</h5>
+                    <div>
+                      <textarea
+                          type="text"
+                          className="form-control"
+                          placeholder="Enter your bio here"
+                          name="Bio"
+                          id="Bio"
+                          onChange={this.handleChange}
+                          // value={Bio || ""}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <h5>Headshot:</h5>
+                    <div>
+                      <input
+                          type="file" id="img" name="img" accept="image/*"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <h5>Share your Social Media: (Instagram, Twitter, Linkdin, etc)</h5>
+                    <div>
+                      <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Enter your social media ID "
+                          name="SocialMedia"
+                          id="SocialMedia"
+                          onChange={this.handleChange}
+                          // value = {SocialMedia || ''}
+
+                      />
+                    </div>
+                  </div>
+
                   <div class="form-group">
                     <h5>Password: (Minimum 8 Characters)</h5>
                     <div>
@@ -228,6 +283,8 @@ class LawyerSignUp extends Component {
                       />
                     </div>
                   </div>
+
+
 
                   <div class="form-group">
                     <h5>Retype Password: </h5>

@@ -49,7 +49,7 @@ class ClientSignIn extends Component {
             return (
                 <Redirect
                     to={{
-                        pathname: "/clientdashboard",
+                        pathname: "/ClientProfile",
                     }}
                 />
             );

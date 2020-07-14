@@ -81,6 +81,7 @@ class NestedModal extends Component {
     const { open, firstTime, secondTime, thirdTime } = this.state;
 
     return (
+<div>
       <Modal
         open={open}
         onOpen={this.open}
@@ -171,30 +172,56 @@ class NestedModal extends Component {
                   30-60 minutes
                 </li>
 
-                <li>
-                  There will be a 5-minute period at the end of the consultation
-                  for your client to ask questions
-                </li>
-                <li>
-                  The consultation will be recorded for your client's future
-                  reference
-                </li>
-              </ul>
-            </Form.Field>
 
-            <Form.Field>
-              <Button
-                floated="right"
-                color="blue"
-                type="submit"
-                icon="check"
-                content="Submit"
-                onClick={this.close}
-              />
-            </Form.Field>
-          </Form>
-        </Modal.Content>
-      </Modal>
+                  <li>
+                    There will be a 5-minute period at the end of the
+                    consultation for your client to ask questions
+                  </li>
+                  <li>
+                    The consultation will be recorded for your client's future
+                    reference
+                  </li>
+                </ul>
+              </Form.Field>
+
+              <Form.Field>
+                <Button
+                  floated="right"
+                  color="blue"
+                  type="submit"
+                  icon="check"
+                  content="Submit"
+                  onClick={this.close}
+                />
+              </Form.Field>
+            </Form>
+          </Modal.Content>
+        </Modal>
+
+        <Modal
+          size="small"
+          trigger={
+            <Button primary icon>
+              My Meeting Time
+            </Button>
+          }
+        >
+          <Modal.Header>Meeting Information</Modal.Header>
+          <Modal.Content>
+            {this.state.selectedDay ? (
+              <div>
+                <p>
+                  Scheduled Date: {this.state.selectedDay.toLocaleDateString()}
+                </p>
+                <p>Scheduled Time: 00:00</p>
+                <p>Zoom Link: www.zoom.com/example</p>
+              </div>
+            ) : (
+              <p>You haven't scheduled a meeting with this client.</p>
+            )}
+          </Modal.Content>
+        </Modal>
+      </div>
     );
   }
 }

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 import abeLogo from "./abeLogo.png";
+import {Container, Menu} from "semantic-ui-react";
+import Inbox from "./inboxPopupForClients";
 
 
 let endpoint = "http://localhost:8080";
@@ -58,6 +60,7 @@ class Clients extends Component {
   };
 
   render() {
+    const { activeItem } = this.state
     const {
       FirstName,
       LastName,
@@ -69,8 +72,42 @@ class Clients extends Component {
       SocialMedia,
     } = this.state;
     return (
+    <Container>
       <div>
-        <img src={abeLogo} className="logo" alt="logo"></img>
+
+        <Menu pointing secondary>
+          <img src={abeLogo} className="logo"></img>
+          <Menu.Item
+              name="dashboard"
+              active={activeItem === "dashboard"}
+              onClick={this.handleItemClick}
+              href='/clientdashboard'
+          />
+          <Menu.Item
+              name="profile"
+              active={activeItem === "profile"}
+              onClick={this.handleItemClick}
+              href='/ClientProfile'
+          />
+
+          <Menu.Item
+              name="caseForm"
+              active={activeItem === "caseForm"}
+              onClick={this.handleItemClick}
+              href='/client'
+          />
+
+          <Inbox />
+
+          <Menu.Menu position="right">
+            <Menu.Item
+                name="logout"
+                active={activeItem === "logout"}
+                onClick={this.handleItemClick}
+                href='/'
+            />
+          </Menu.Menu>
+        </Menu>
         <div className="App">
           <div className="container" id="registration-form">
             <div className="image"></div>
@@ -123,17 +160,32 @@ class Clients extends Component {
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <h5>Phone Number:</h5>
+                <div className="form-group">
+                  <h5>Cell Phone Number:</h5>
                   <div>
                     <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter phone number"
-                      name="PhoneNumber"
-                      id="phoneNumber"
-                      onChange={this.handleChange}
-                      value={PhoneNumber || ""}
+                        type="text"
+                        className="form-control"
+                        placeholder="Enter cell phone number"
+                        name="CellPhoneNumber"
+                        id="CellPhoneNumber"
+                        onChange={this.handleChange}
+                        // value={CellPhoneNumber || ""}
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <h5>Office Phone Number:</h5>
+                  <div>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Enter office phone number"
+                        name="OfficePhoneNumber"
+                        id="OfficePhoneNumber"
+                        onChange={this.handleChange}
+                        // value={OfficePhoneNumber || ""}
                     />
                   </div>
                 </div>
@@ -168,6 +220,21 @@ class Clients extends Component {
                   </div>
                 </div>
 
+                <div className="form-group">
+                  <h5>Doc:</h5>
+                  <div>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="List the name of any doc you reference relate to your legal problem"
+                        name="Doc"
+                        id="Doc"
+                        onChange={this.handleChange}
+                        // value={Doc || ""}
+                    />
+                  </div>
+                </div>
+
                 <div class="form-group">
                   <h5>How did you find Abe Legal?</h5>
                   <div>
@@ -184,7 +251,7 @@ class Clients extends Component {
                 </div>
 
                 <div class="form-group">
-                  <h5>Share your Social Media: (Instagram, Twitter, etc)</h5>
+                  <h5>Share your Social Media: (Instagram, Twitter, Linkedin etc)</h5>
                   <div>
                     <input
                       type="text"
@@ -208,6 +275,7 @@ class Clients extends Component {
           </div>
         </div>
       </div>
+    </Container>
     );
   }
 }
