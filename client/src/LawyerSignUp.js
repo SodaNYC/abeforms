@@ -25,6 +25,10 @@ class LawyerSignUp extends Component {
     });
   };
 
+  componentDidMount(){
+    document.title = "Abe Dashboard"
+  }
+
   onPress = () => {
     console.log("hello")
     const {

@@ -23,7 +23,11 @@ class ClientSignUp extends Component {
             [event.target.name]: event.target.value,
         });
     };
-
+    
+    componentDidMount(){
+        document.title = "Abe Dashboard"
+      }
+      
     onSubmit = () => {
         const {
             FirstName,

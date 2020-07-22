@@ -36,6 +36,7 @@ class LawyerDashboard extends Component {
   componentDidMount() {
     this.getOpenCase();
     this.getMyCase();
+    document.title = "Abe Dashboard"
   }
 
   scheduleMeeting = () => {

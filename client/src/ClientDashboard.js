@@ -37,6 +37,8 @@ class ClientDashboard extends Component {
   componentDidMount() {
     this.getAssignedCase();
     this.getUnassignedCase();
+    document.title = "Abe Dashboard"
+  
   }
 
   getAssignedCase = () => {

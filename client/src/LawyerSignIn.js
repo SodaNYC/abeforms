@@ -21,6 +21,10 @@ class LawyerSignIn extends Component {
     });
   };
 
+  componentDidMount(){
+    document.title = "Abe Dashboard"
+  }
+
   onPress = () => {
     const { EmailAddress, Password } = this.state;
     axios
