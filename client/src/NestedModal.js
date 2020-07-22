@@ -49,7 +49,6 @@ class NestedModal extends Component {
         .post(
             endpoint + "/lawyerdashboard/api/schedulemeeting",
             {
-              SelectedDay: SelectedDay,
               FirstTime: FirstTime,
               SecondTime: SecondTime,
               ThirdTime: ThirdTime,

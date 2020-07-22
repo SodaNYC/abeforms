@@ -8,7 +8,7 @@ import (
 	"log"
 )
 
-const connectionString = "mongodb+srv://akkshay:%40Whatever12@abelegal-rrztu.gcp.mongodb.net/test"
+const connectionString = "mongodb+srv://austinhx:Password12@cluster0.meca5.gcp.mongodb.net/test"
 const dbName = "AbeDB"
 const collName = "client_info"
 const lawName = "lawyers"
@@ -37,6 +37,8 @@ func ConnectDB() {
 	fmt.Println("Database is up and running")
 
 	ClientCollection = client.Database(dbName).Collection(collName)
+	log.Println(ClientCollection)
+	
 	LawyerCollection = client.Database(dbName).Collection(lawName)
 	ClaimsCollection = client.Database(dbName).Collection(claimName)
 

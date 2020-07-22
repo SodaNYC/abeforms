@@ -289,7 +289,6 @@ func AddClient(w http.ResponseWriter, r *http.Request) {
 		log.Println("Something came up wrong in email")
 		return
 	}
-	//TODO: Check all other info...
 
 	//CHECK AND VALIDATE PASSWORD
 	var (
@@ -366,56 +365,6 @@ func AddClient(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//Check and validate phone number
-	phNumFormat := regexp.MustCompile("^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$")
-	if format := phNumFormat.MatchString(clientInfo.PhoneNumber); format != true {
-		apiErr := &utils.ApplicationError{
-			Message:    "Phone Number format wrong",
-			StatusCode: http.StatusBadRequest,
-			Code:       "bad_request",
-		}
-		jsonValue, err := json.Marshal(apiErr)
-		if err != nil {
-			log.Println(err)
-		}
-		w.WriteHeader(apiErr.StatusCode)
-		w.Write(jsonValue)
-		log.Println("Phone Number format wrong")
-		return
-	}
-
-	//Check and validate Referral/FindHow
-	if format := nameFormat.MatchString(clientInfo.FindHow); format != true {
-		apiErr := &utils.ApplicationError{
-			Message:    "Referral wrong format",
-			StatusCode: http.StatusBadRequest,
-			Code:       "bad_request",
-		}
-		jsonValue, err := json.Marshal(apiErr)
-		if err != nil {
-			log.Println(err)
-		}
-		w.WriteHeader(apiErr.StatusCode)
-		w.Write(jsonValue)
-		log.Println("Referral format wrong")
-		return
-	}
-
-	//Check and validate Social Media
-	if format := nameFormat.MatchString(clientInfo.SocialMedia); format != true {
-		apiErr := &utils.ApplicationError{
-			Message:    "Social Media must be an URL",
-			StatusCode: http.StatusBadRequest,
-			Code:       "bad_request",
-		}
-		jsonValue, err := json.Marshal(apiErr)
-		if err != nil {
-			log.Println(err)
-		}
-		w.WriteHeader(apiErr.StatusCode)
-		w.Write(jsonValue)
-		log.Println("Social Media format wrong")
-		return
-	}
 
 	apiErr := services.AddClient(clientInfo)
 	if apiErr != nil {

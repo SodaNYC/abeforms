@@ -52,10 +52,7 @@ class ClientSignUp extends Component {
             err.push(["\nInvalid Last Name Format. Can only use letters, apostraphes and hyphens"]);
         }
         // check if phone number is in the correct format
-        if(!this.state.PhoneNumber.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)){
-            val = false;
-            err.push(["\nInvalid Phone Number"]);
-        }
+
         // check if password is in the correct format
         if(!this.state.Password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/)){
             val = false;
@@ -73,10 +70,10 @@ class ClientSignUp extends Component {
             val = false;
             err.push(["\nInvalid input Format for Referral. Can only use letters, apostraphes and hyphens"]);
         }
-        if (val){
+
             axios
                 .post(
-                    endpoint + "/clientdashboard/sign_up/api/signup",
+                    endpoint + "/clientdashboard/api/signup",
                     {
                         FirstName: FirstName,
                         LastName: LastName,
@@ -93,9 +90,6 @@ class ClientSignUp extends Component {
                     }
                 )
                 .then((res) => console.log(FirstName));
-        }else{
-            alert(err);
-        }
     };
 
     render() {
@@ -262,7 +256,7 @@ class ClientSignUp extends Component {
 
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success btn-lg">
+                                    <button class="btn btn-success btn-lg">
                                         Submit
                                     </button>
                                 </div>

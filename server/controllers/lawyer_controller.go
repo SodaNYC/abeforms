@@ -137,9 +137,10 @@ func AddLawyer(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 	//TODO: validating inputs
-
+	log.Println("Add Lawyer")
 	var lawyerInfo models.Lawyers
 	if err := json.NewDecoder(r.Body).Decode(&lawyerInfo); err != nil {
+		log.Println(err)
 		apiErr := &utils.ApplicationError{
 			Message:    "decoding lawyer info failed",
 			StatusCode: http.StatusInternalServerError,
@@ -154,7 +155,6 @@ func AddLawyer(w http.ResponseWriter, r *http.Request) {
 		log.Println("Something came up wrong while decoding lawyer info")
 		return
 	}
-	log.Println(lawyerInfo)
 	lawyerInfo.ID = primitive.NewObjectID()
 	log.Println(lawyerInfo.EmailAddress)
 

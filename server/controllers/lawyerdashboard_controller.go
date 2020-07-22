@@ -53,7 +53,7 @@ func CreateMeeting(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Methods", "POST")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 
-	var meetingInfo models.Lawyers
+	/*var meetingInfo models.Lawyers
 	if err := json.NewDecoder(r.Body).Decode(&meetingInfo); err != nil {
 		apiErr := &utils.ApplicationError{
 			Message:    "decoding lawyer info failed",
@@ -70,10 +70,13 @@ func CreateMeeting(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	user := models.Lawyers{}
+	user = r.Context().Value(utils.UserKey("user")).(models.Lawyers)*/
+	user := models.Lawyers{}
 	user = r.Context().Value(utils.UserKey("user")).(models.Lawyers)
-
+	log.Println(user)
 	var zoomMeetingInfo utils.ZoomMeeting
 	if err := json.NewDecoder(r.Body).Decode(&zoomMeetingInfo); err != nil {
+		log.Println(err)
 		apiErr := &utils.ApplicationError{
 			Message:    "decoding zoom_meeting info failed",
 			StatusCode: http.StatusInternalServerError,
@@ -89,14 +92,15 @@ func CreateMeeting(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	apiErr := services.CreateMeeting(zoomMeetingInfo, user)
+	/*apiErr := services.CreateMeeting(zoomMeetingInfo, user)
 
 	if apiErr != nil {
 		jsonValue, _ := json.Marshal(apiErr)
 		w.WriteHeader(apiErr.StatusCode)
 		w.Write([]byte(jsonValue))
 		return
-	}
+	}*/
+	log.Println(zoomMeetingInfo)
 
 }
 

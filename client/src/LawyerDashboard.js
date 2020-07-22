@@ -186,7 +186,6 @@ class LawyerDashboard extends Component {
         console.log("setting my cases info");
         this.setState({
           my_items: res.data.map((item) => {
-            console.log("hell111o");
             console.log(item);
             return (
               <Card>
@@ -240,7 +239,6 @@ class LawyerDashboard extends Component {
           }),
         });
         console.log(this.setState);
-        //console.log(this.setState)
       } else {
         this.setState({
           my_items: [],

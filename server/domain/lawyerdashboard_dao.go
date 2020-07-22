@@ -112,7 +112,7 @@ func CreateMeeting(zoomInfo utils.ZoomMeeting, user models.Lawyers) *utils.Appli
 		2,
 		"2020-06-24T22:00:00Z",
 		30,
-		zoomInfo.ClientEmail,
+		zoomInfo.FirstTime,
 		"Asia/Singapore",
 		"pass8888", //set this with your desired password for better security, max 8 chars
 		"Discuss next steps and ways to contribute for this project.",

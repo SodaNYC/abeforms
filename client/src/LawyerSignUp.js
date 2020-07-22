@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
-import { Container } from "semantic-ui-react";
+import { Container, Form } from "semantic-ui-react";
 
 let endpoint = "http://localhost:8080";
 
@@ -25,7 +25,8 @@ class LawyerSignUp extends Component {
     });
   };
 
-  onSubmit = () => {
+  onPress = () => {
+    console.log("hello")
     const {
       FirstName,
       LastName,
@@ -36,6 +37,8 @@ class LawyerSignUp extends Component {
       Password,
       RetypePassword,
     } = this.state;
+    console.log(this.state)
+    /*
     var val = true;
     var err = [];
     // check if email is in the correct format
@@ -54,10 +57,6 @@ class LawyerSignUp extends Component {
       err.push(["\nInvalid Last Name Format. Can only use letters, apostraphes and hyphens"]);
     }
     // check if phone number is in the correct format
-    if(!this.state.PhoneNumber.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)){
-      val = false;
-      err.push(["\nInvalid Phone Number"]);
-    }
     // check if state of license is in the correct format
     if(!this.state.StateOfLicense.match(/^[a-zA-Z]+[a-zA-Z-]*$/)){
       val = false;
@@ -79,11 +78,51 @@ class LawyerSignUp extends Component {
         val = false;
         err.push(["\nRetype Password is not the same as Password"]);
       }
-    }
-    if (val){
+    }*/
+    /*
+    
+                  <div className="form-group">
+                    <h5>Bio:</h5>
+                    <div>
+                      <textarea
+                          type="text"
+                          className="form-control"
+                          placeholder="Enter your bio here"
+                          name="Bio"
+                          id="Bio"
+                          onChange={this.handleChange}
+                          // value={Bio || ""}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <h5>Headshot:</h5>
+                    <div>
+                      <input
+                          type="file" id="img" name="img" accept="image/*"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <h5>Share your Social Media: (Instagram, Twitter, Linkdin, etc)</h5>
+                    <div>
+                      <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Enter your social media ID "
+                          name="SocialMedia"
+                          id="SocialMedia"
+                          onChange={this.handleChange}
+                          // value = {SocialMedia || ''}
+
+                      />
+                    </div>
+                  </div>*/
       axios
           .post(
-              endpoint + "/lawyerdashboard/sign_up/api/signup",
+              endpoint + "/lawyerdashboard/api/signup",
               {
                 FirstName: FirstName,
                 LastName: LastName,
@@ -93,6 +132,7 @@ class LawyerSignUp extends Component {
                 Expertise: Expertise,
                 Password: Password,
                 RetypePassword: RetypePassword,
+
               },
               {
                 headers: {
@@ -101,9 +141,7 @@ class LawyerSignUp extends Component {
               }
           )
           .then((res) => console.log(FirstName));
-    }else{
-      alert(err);
-    }
+    
   };
 
   render() {
@@ -124,7 +162,7 @@ class LawyerSignUp extends Component {
               <div className="image"></div>
               <div className="frm">
                 <h1>Create your Abe Legal Account</h1>
-                <form onSubmit={this.onSubmit}>
+                <Form onSubmit={this.onPress}>
                   <div class="form-group">
                     <h5>First Name:</h5>
                     <div>
@@ -177,28 +215,15 @@ class LawyerSignUp extends Component {
                           type="text"
                           class="form-control"
                           placeholder="Enter cell phone number"
-                          name="CellPhoneNumber"
-                          id="CellPhoneNumber"
+                          name="PhoneNumber"
+                          id="PhoneNumber"
                           onChange={this.handleChange}
-                          // value={CellPhoneNumber || ""}
+                          value={PhoneNumber || ""}
                       />
                     </div>
                   </div>
 
-                  <div className="form-group">
-                    <h5>Office Phone Number:</h5>
-                    <div>
-                      <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter office phone number"
-                          name="OfficePhoneNumber"
-                          id="OfficePhoneNumber"
-                          onChange={this.handleChange}
-                          // value={OfficePhoneNumber || ""}
-                      />
-                    </div>
-                  </div>
+
 
                   <div class="form-group">
                     <h5>State Of License: </h5>
@@ -230,45 +255,6 @@ class LawyerSignUp extends Component {
                     </div>
                   </div>
 
-                  <div className="form-group">
-                    <h5>Bio:</h5>
-                    <div>
-                      <textarea
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter your bio here"
-                          name="Bio"
-                          id="Bio"
-                          onChange={this.handleChange}
-                          // value={Bio || ""}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <h5>Headshot:</h5>
-                    <div>
-                      <input
-                          type="file" id="img" name="img" accept="image/*"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="form-group">
-                    <h5>Share your Social Media: (Instagram, Twitter, Linkdin, etc)</h5>
-                    <div>
-                      <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Enter your social media ID "
-                          name="SocialMedia"
-                          id="SocialMedia"
-                          onChange={this.handleChange}
-                          // value = {SocialMedia || ''}
-
-                      />
-                    </div>
-                  </div>
 
                   <div class="form-group">
                     <h5>Password: (Minimum 8 Characters)</h5>
@@ -309,7 +295,7 @@ class LawyerSignUp extends Component {
                     Already have an account? Click{" "}
                     <a href="/lawyerdashboard/sign_in">here</a>
                   </p>
-                </form>
+                </Form>
               </div>
             </div>
           </div>
