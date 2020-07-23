@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
-import { Container } from "semantic-ui-react";
+import { Container, Button } from "semantic-ui-react";
+import abeLogo from "./abeLogo.png";
+import styles from "./ClientSignIn.module.css";
 
 let endpoint = "http://localhost:8080";
 
@@ -112,10 +114,11 @@ class ClientSignUp extends Component {
                     <div className="container" id="registration-form">
                         <div className="image"></div>
                         <div className="frm">
-                            <h1>Create your Abe Legal Account</h1>
+                            <img src={abeLogo} className={styles.logo}></img>
+                            <p>Please Sign Up to Your Abe Legal account</p>
                             <form onSubmit={this.onSubmit}>
                                 <div class="form-group">
-                                    <h5>First Name:</h5>
+                                    {/*<h5>First Name:</h5>*/}
                                     <div>
                                         <input
                                             type="text"
@@ -130,7 +133,7 @@ class ClientSignUp extends Component {
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Last Name:</h5>
+                                    {/*<h5>Last Name:</h5>*/}
                                     <div>
                                         <input
                                             type="text"
@@ -145,7 +148,7 @@ class ClientSignUp extends Component {
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Email:</h5>
+                                    {/*<h5>Email:</h5>*/}
                                     <div>
                                         <input
                                             type="text"
@@ -160,7 +163,7 @@ class ClientSignUp extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <h5>Cell Phone Number:</h5>
+                                    {/*<h5>Cell Phone Number:</h5>*/}
                                     <div>
                                         <input
                                             type="text"
@@ -175,7 +178,7 @@ class ClientSignUp extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <h5>Office Phone Number:</h5>
+                                    {/*<h5>Office Phone Number:</h5>*/}
                                     <div>
                                         <input
                                             type="text"
@@ -190,7 +193,7 @@ class ClientSignUp extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <h5>How Did You Hear About Us:</h5>
+                                    {/*<h5>How Did You Hear About Us:</h5>*/}
                                     <div>
                                         <input
                                             type="text"
@@ -214,12 +217,12 @@ class ClientSignUp extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <h5>Share your Social Media: (Instagram, Twitter, Linkdin, etc)</h5>
+                                    {/*<h5>Share your Social Media: (Instagram, Twitter, Linkdin, etc)</h5>*/}
                                     <div>
                                         <input
                                             type="text"
                                             className="form-control"
-                                            placeholder="Enter your social media ID "
+                                            placeholder="Share your Social Media: (Instagram, Twitter, Linkdin, etc)"
                                             name="SocialMedia"
                                             id="SocialMedia"
                                             onChange={this.handleChange}
@@ -230,13 +233,14 @@ class ClientSignUp extends Component {
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Password: (Minimum 8 Characters)</h5>
+                                    {/*<h5>Password: (Minimum 8 Characters)</h5>*/}
                                     <div>
                                         <input
                                             type="password"
                                             class="form-control"
                                             name="Password"
                                             id="Password"
+                                            placeholder='Minimum eight characters, at least one letter, one number and one special character'
                                             onChange={this.handleChange}
                                             value={Password || ""}
                                         />
@@ -244,13 +248,14 @@ class ClientSignUp extends Component {
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Retype Password: </h5>
+                                    {/*<h5>Retype Password: </h5>*/}
                                     <div>
                                         <input
                                             type="password"
                                             class="form-control"
                                             name="RetypePassword"
                                             id="RetypePassword"
+                                            placeholder='Retype the password'
                                             onChange={this.handleChange}
                                             value={RetypePassword || ""}
                                         />
@@ -260,13 +265,11 @@ class ClientSignUp extends Component {
 
 
                                 <div class="form-group">
-                                    <button class="btn btn-success btn-lg">
-                                        Submit
-                                    </button>
+                                    <Button color='yellow' size='large' className={styles.button}>Log in</Button>
                                 </div>
                                 <p>
-                                    Already have an account? Click{" "}
-                                    <a href="/clientdashboard/sign_in">here</a>
+                                    Already a member? {" "}
+                                    <a href="/clientdashboard/sign_in">Click here to log in</a>
                                 </p>
                             </form>
                         </div>

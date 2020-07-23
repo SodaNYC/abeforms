@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
-import { Container, Form } from "semantic-ui-react";
+import { Container, Form, Button } from "semantic-ui-react";
 import { Redirect } from "react-router-dom";
+import abeLogo from "./abeLogo.png";
+import styles from './ClientSignIn.module.css';
 
 let endpoint = "http://localhost:8080";
 
@@ -59,20 +61,21 @@ class ClientSignIn extends Component {
             );
         }
         return (
+            <div className={styles.wholeBox}>
             <Container>
                 <div className="App">
                     <div className="container" id="registration-form">
-                        <div className="image"></div>
                         <div className="frm">
-                            <h1>Sign in</h1>
-                            <p>to continue to Abe</p>
+                            <img src={abeLogo} className={styles.logo}></img>
+
+                            <p>Please log in to your Abe Legal account</p>
                             <Form onSubmit={this.onPress}>
                                 <div class="form-group">
-                                    <h5>Email Address:</h5>
+                                    {/*<h5>Email Address:</h5>*/}
                                     <div>
                                         <input
                                             type="text"
-                                            class="form-control"
+                                            className={styles.formControl}
                                             placeholder="Enter email address"
                                             name="EmailAddress"
                                             id="EmailAddress"
@@ -83,11 +86,11 @@ class ClientSignIn extends Component {
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Password:</h5>
+                                    {/*<h5>Password:</h5>*/}
                                     <div>
                                         <input
                                             type="password"
-                                            class="form-control"
+                                            className={styles.formControl}
                                             placeholder="Enter password"
                                             name="Password"
                                             id="Password"
@@ -98,17 +101,18 @@ class ClientSignIn extends Component {
                                 </div>
 
                                 <div class="form-group">
-                                    <button class="btn btn-success btn-lg">Submit</button>
+                                    <Button color='yellow' size='large' className={styles.button}>Log in</Button>
                                 </div>
                                 <p>
-                                    Don't have an account? Click{" "}
-                                    <a href="/clientdashboard/sign_up">here</a>
+                                    Not an Abe Legal member?{" "}
+                                    <a href="/clientdashboard/sign_up">join now</a>
                                 </p>
                             </Form>
                         </div>
                     </div>
                 </div>
             </Container>
+            </div>
         );
     }
 }
