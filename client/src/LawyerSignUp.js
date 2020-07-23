@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
-import { Container, Form } from "semantic-ui-react";
+import {Button, Container, Form} from "semantic-ui-react";
+import styles from "./ClientSignIn.module.css";
+import abeLogo from "./abeLogo.png";
 
 let endpoint = "http://localhost:8080";
 
@@ -165,10 +167,12 @@ class LawyerSignUp extends Component {
             <div className="container" id="registration-form">
               <div className="image"></div>
               <div className="frm">
-                <h1>Create your Abe Legal Account</h1>
+                <img src={abeLogo} className={styles.logo}></img>
+                <p>Please Sign Up to Your Abe Legal account</p>
+
                 <Form onSubmit={this.onPress}>
                   <div class="form-group">
-                    <h5>First Name:</h5>
+                    {/*<h5>First Name:</h5>*/}
                     <div>
                       <input
                           type="text"
@@ -183,7 +187,7 @@ class LawyerSignUp extends Component {
                   </div>
 
                   <div class="form-group">
-                    <h5>Last Name:</h5>
+                    {/*<h5>Last Name:</h5>*/}
                     <div>
                       <input
                           type="text"
@@ -198,7 +202,7 @@ class LawyerSignUp extends Component {
                   </div>
 
                   <div class="form-group">
-                    <h5>Email:</h5>
+                    {/*<h5>Email:</h5>*/}
                     <div>
                       <input
                           type="text"
@@ -213,7 +217,7 @@ class LawyerSignUp extends Component {
                   </div>
 
                   <div class="form-group">
-                    <h5>Cell Phone Number:</h5>
+                    {/*<h5>Cell Phone Number:</h5>*/}
                     <div>
                       <input
                           type="text"
@@ -230,7 +234,7 @@ class LawyerSignUp extends Component {
 
 
                   <div class="form-group">
-                    <h5>State Of License: </h5>
+                    {/*<h5>State Of License: </h5>*/}
                     <div>
                       <input
                           type="text"
@@ -245,7 +249,7 @@ class LawyerSignUp extends Component {
                   </div>
 
                   <div class="form-group">
-                    <h5>Expertise:</h5>
+                    {/*<h5>Expertise:</h5>*/}
                     <div>
                       <input
                           type="text"
@@ -261,7 +265,7 @@ class LawyerSignUp extends Component {
 
 
                   <div class="form-group">
-                    <h5>Password: (Minimum 8 Characters)</h5>
+                    {/*<h5>Password: (Minimum 8 Characters)</h5>*/}
                     <div>
                       <input
                           type="password"
@@ -269,6 +273,7 @@ class LawyerSignUp extends Component {
                           name="Password"
                           id="Password"
                           onChange={this.handleChange}
+                          placeholder='Minimum eight characters, at least one letter, one number and one special character'
                           value={Password || ""}
                       />
                     </div>
@@ -277,7 +282,7 @@ class LawyerSignUp extends Component {
 
 
                   <div class="form-group">
-                    <h5>Retype Password: </h5>
+                    {/*<h5>Retype Password: </h5>*/}
                     <div>
                       <input
                           type="password"
@@ -285,19 +290,18 @@ class LawyerSignUp extends Component {
                           name="RetypePassword"
                           id="RetypePassword"
                           onChange={this.handleChange}
+                          placeholder='Retype the password'
                           value={RetypePassword || ""}
                       />
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-success btn-lg">
-                      Submit
-                    </button>
+                    <Button color='yellow' size='large' className={styles.button}>Log in</Button>
                   </div>
                   <p>
-                    Already have an account? Click{" "}
-                    <a href="/lawyerdashboard/sign_in">here</a>
+                    Already a member? {" "}
+                    <a href="/lawyerdashboard/sign_in">Click here to log in</a>
                   </p>
                 </Form>
               </div>

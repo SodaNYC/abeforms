@@ -21,11 +21,10 @@ body {
   padding: 20px 30px 30px 50px;
   background-color: white;
   position: absolute;
-  margin-top: 40%;
-  margin-left: 40%;
-  margin-right: -50%;
-  margin-bottom: 20%;
-  transform: translate(-50%, -50%);
+  margin-top: 15%;
+  margin-left: 10%;
+
+
   border-radius: 100px;
 }
 

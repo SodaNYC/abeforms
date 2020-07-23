@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
-import { Container, Form } from "semantic-ui-react";
+import {Button, Container, Form} from "semantic-ui-react";
 import { Redirect } from "react-router-dom";
+import abeLogo from "./abeLogo.png";
+import styles from './LawyerSignIn.module.css';
 
 let endpoint = "http://localhost:8080";
 
@@ -64,11 +66,12 @@ class LawyerSignIn extends Component {
             <div className="container" id="registration-form">
               <div className="image"></div>
               <div className="frm">
-                <h1>Sign in</h1>
+                <img src={abeLogo} className={styles.logo}></img>
+                <p>Please log in to your Abe Legal account</p>
                 <p>to continue to Abe</p>
                 <Form onSubmit={this.onPress}>
                   <div class="form-group">
-                    <h5>Email Address:</h5>
+                    {/*<h5>Email Address:</h5>*/}
                     <div>
                       <input
                           type="text"
@@ -83,7 +86,7 @@ class LawyerSignIn extends Component {
                   </div>
 
                   <div class="form-group">
-                    <h5>Password:</h5>
+                    {/*<h5>Password:</h5>*/}
                     <div>
                       <input
                           type="password"
@@ -98,7 +101,7 @@ class LawyerSignIn extends Component {
                   </div>
 
                   <div class="form-group">
-                    <button class="btn btn-success btn-lg">Submit</button>
+                    <Button color='yellow' size='large' className={styles.button}>Log in</Button>
                   </div>
                   <p>
                     Don't have an account? Click{" "}
