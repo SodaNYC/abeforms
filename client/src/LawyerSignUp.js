@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
 import {Button, Container, Form} from "semantic-ui-react";
-import styles from "./ClientSignIn.module.css";
+import styles from "./LawyerSignUp.module.css";
 import abeLogo from "./abeLogo.png";
 
 let endpoint = "http://localhost:8080";
@@ -164,16 +164,14 @@ class LawyerSignUp extends Component {
     return (
         <Container>
           <div className="App">
-            <div className="container" id="registration-form">
-              <div className="image"></div>
-              <div className="frm">
+            <div className={styles.frm}>
                 <img src={abeLogo} className={styles.logo}></img>
-                <p>Please Sign Up to Your Abe Legal account</p>
+                <p className={styles.font}>Please Sign Up to Your Abe Legal account</p>
 
                 <Form onSubmit={this.onPress}>
                   <div class="form-group">
                     {/*<h5>First Name:</h5>*/}
-                    <div>
+                    <div className={styles.formControl}>
                       <input
                           type="text"
                           class="form-control"
@@ -188,7 +186,7 @@ class LawyerSignUp extends Component {
 
                   <div class="form-group">
                     {/*<h5>Last Name:</h5>*/}
-                    <div>
+                    <div className={styles.formControl}>
                       <input
                           type="text"
                           class="form-control"
@@ -203,7 +201,7 @@ class LawyerSignUp extends Component {
 
                   <div class="form-group">
                     {/*<h5>Email:</h5>*/}
-                    <div>
+                    <div className={styles.formControl}>
                       <input
                           type="text"
                           class="form-control"
@@ -218,7 +216,7 @@ class LawyerSignUp extends Component {
 
                   <div class="form-group">
                     {/*<h5>Cell Phone Number:</h5>*/}
-                    <div>
+                    <div className={styles.formControl}>
                       <input
                           type="text"
                           class="form-control"
@@ -235,7 +233,7 @@ class LawyerSignUp extends Component {
 
                   <div class="form-group">
                     {/*<h5>State Of License: </h5>*/}
-                    <div>
+                    <div className={styles.formControl}>
                       <input
                           type="text"
                           class="form-control"
@@ -250,7 +248,7 @@ class LawyerSignUp extends Component {
 
                   <div class="form-group">
                     {/*<h5>Expertise:</h5>*/}
-                    <div>
+                    <div className={styles.formControl}>
                       <input
                           type="text"
                           class="form-control"
@@ -265,15 +263,15 @@ class LawyerSignUp extends Component {
 
 
                   <div class="form-group">
-                    {/*<h5>Password: (Minimum 8 Characters)</h5>*/}
-                    <div>
+                    <div className={styles.formControl}>
+                    <p className={styles.fonts}>Password (Minimum 8 Characters, 1 letter, 1 number, 1 special character):</p>
                       <input
                           type="password"
                           class="form-control"
                           name="Password"
                           id="Password"
                           onChange={this.handleChange}
-                          placeholder='Minimum eight characters, at least one letter, one number and one special character'
+                          placeholder='Password'
                           value={Password || ""}
                       />
                     </div>
@@ -283,7 +281,7 @@ class LawyerSignUp extends Component {
 
                   <div class="form-group">
                     {/*<h5>Retype Password: </h5>*/}
-                    <div>
+                    <div className={styles.formControl}>
                       <input
                           type="password"
                           class="form-control"
@@ -299,14 +297,13 @@ class LawyerSignUp extends Component {
                   <div class="form-group">
                     <Button color='yellow' size='large' className={styles.button}>Log in</Button>
                   </div>
-                  <p>
+                  <p className={styles.font}>
                     Already a member? {" "}
                     <a href="/lawyerdashboard/sign_in">Click here to log in</a>
                   </p>
                 </Form>
               </div>
             </div>
-          </div>
         </Container>
     );
   }

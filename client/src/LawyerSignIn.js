@@ -63,16 +63,16 @@ class LawyerSignIn extends Component {
     return (
         <Container>
           <div className="App">
-            <div className="container" id="registration-form">
-              <div className="image"></div>
-              <div className="frm">
+            {/*<div className="container" id="registration-form">*/}
+            {/*  <div className="image"></div>*/}
+            <div className={styles.frm}>
                 <img src={abeLogo} className={styles.logo}></img>
-                <p>Please log in to your Abe Legal account</p>
-                <p>to continue to Abe</p>
+                <p className={styles.font}>Please log in to your Abe Legal account</p>
+                <p className={styles.font}>to continue to Abe</p>
                 <Form onSubmit={this.onPress}>
                   <div class="form-group">
                     {/*<h5>Email Address:</h5>*/}
-                    <div>
+                    <div className={styles.formControl}>
                       <input
                           type="text"
                           class="form-control"
@@ -87,7 +87,7 @@ class LawyerSignIn extends Component {
 
                   <div class="form-group">
                     {/*<h5>Password:</h5>*/}
-                    <div>
+                    <div className={styles.formControl}>
                       <input
                           type="password"
                           class="form-control"
@@ -103,12 +103,12 @@ class LawyerSignIn extends Component {
                   <div class="form-group">
                     <Button color='yellow' size='large' className={styles.button}>Log in</Button>
                   </div>
-                  <p>
+                  <p className={styles.font}>
                     Don't have an account? Click{" "}
                     <a href="/lawyerdashboard/sign_up">here</a>
                   </p>
                 </Form>
-              </div>
+            {/*  </div>*/}
             </div>
           </div>
         </Container>
