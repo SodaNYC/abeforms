@@ -15,6 +15,7 @@ import {
   ModalActions,
 } from "semantic-ui-react";
 import { Redirect } from "react-router-dom";
+import NestedModal from "./NestedModal";
 
 
 let endpoint = "http://localhost:8080";
@@ -95,6 +96,7 @@ class ClientDashboard extends Component {
                         </Modal.Description>
                       </Modal.Content>
                       <Modal.Actions>
+                        <NestedModal/>
                         <Button basic color="red">
                           Close
                         </Button>
