@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import NestedModal from "./NestedModal.js";
+
 import Inbox from "./inboxPopupForLawyers"
 import abeLogo from "./abeLogo.png";
 import "./App.css";
@@ -227,11 +227,7 @@ class LawyerDashboard extends Component {
                           Available Times: Times go here...
                         </Modal.Description>
                       </Modal.Content>
-                      <ModalActions>
-
-                        <NestedModal />
-
-                      </ModalActions>
+                      
                     </Modal>
                   </div>
                 </Card.Content>

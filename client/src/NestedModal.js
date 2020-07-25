@@ -47,7 +47,7 @@ class NestedModal extends Component {
     const { SelectedDay, FirstTime, SecondTime, ThirdTime } = this.state;
     axios
         .post(
-            endpoint + "/lawyerdashboard/api/schedulemeeting",
+            endpoint + "/clientdashboard/api/schedulemeeting",
             {
               FirstTime: FirstTime,
               SecondTime: SecondTime,
@@ -88,7 +88,7 @@ class NestedModal extends Component {
         size="small"
         trigger={
           <Button primary icon>
-            Schedule a Zoom meeting <Icon name="right chevron" />
+            Choose your available times <Icon name="right chevron" />
           </Button>
         }
       >
@@ -197,29 +197,7 @@ class NestedModal extends Component {
           </Modal.Content>
         </Modal>
 
-        <Modal
-          size="small"
-          trigger={
-            <Button primary icon>
-              My Meeting Time
-            </Button>
-          }
-        >
-          <Modal.Header>Meeting Information</Modal.Header>
-          <Modal.Content>
-            {this.state.selectedDay ? (
-              <div>
-                <p>
-                  Scheduled Date: {this.state.selectedDay.toLocaleDateString()}
-                </p>
-                <p>Scheduled Time: 00:00</p>
-                <p>Zoom Link: www.zoom.com/example</p>
-              </div>
-            ) : (
-              <p>You haven't scheduled a meeting with this client.</p>
-            )}
-          </Modal.Content>
-        </Modal>
+        
       </div>
     );
   }
