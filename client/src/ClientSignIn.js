@@ -61,58 +61,53 @@ class ClientSignIn extends Component {
             );
         }
         return (
-            <div className={styles.wholeBox}>
             <Container>
                 <div className="App">
-                    <div className="container" id="registration-form">
-                        <div className="frm">
+                        <div className={styles.frm}>
                             <img src={abeLogo} className={styles.logo}></img>
-
-                            <p>Please log in to your Abe Legal account</p>
+                            <p className={styles.font}>Please log in to your Abe Legal account</p>
                             <Form onSubmit={this.onPress}>
                                 <div class="form-group">
                                     {/*<h5>Email Address:</h5>*/}
-                                    <div>
+                                    <div className={styles.formControl}>
                                         <input
-                                            type="text"
-                                            className={styles.formControl}
-                                            placeholder="Enter email address"
+                                            type="email"
+                                            placeholder="Email Address"
                                             name="EmailAddress"
                                             id="EmailAddress"
                                             onChange={this.handleChange}
                                             value={EmailAddress || ""}
+                                            required
                                         />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     {/*<h5>Password:</h5>*/}
-                                    <div>
+                                    <div className={styles.formControl}>
                                         <input
                                             type="password"
-                                            className={styles.formControl}
-                                            placeholder="Enter password"
+                                            placeholder="Password"
                                             name="Password"
                                             id="Password"
                                             onChange={this.handleChange}
                                             value={Password || ""}
+                                            required
                                         />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <Button color='yellow' size='large' className={styles.button}>Log in</Button>
+                                    <Button color='yellow' size='Huge' className={styles.button}>Login</Button>
                                 </div>
-                                <p>
+                                <p className={styles.font}>
                                     Not an Abe Legal member?{" "}
-                                    <a href="/clientdashboard/sign_up">join now</a>
+                                    <a href="/clientdashboard/sign_up">Join now</a>
                                 </p>
                             </Form>
                         </div>
                     </div>
-                </div>
             </Container>
-            </div>
         );
     }
 }

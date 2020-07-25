@@ -1,5 +1,116 @@
 .logo {
     max-width: 30%;
     max-height: 30%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+
+.button{
+    width: 70%;
+}
+
+.frm {
+    height: auto;
+    max-width: 800px;
+    min-width: 320px;
+    padding: 30px;
+    border: rgb(217,222,226) solid 1px;
+    border-radius: 10px;
+    margin-top: 25%;
+}
+
+.font{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+}
+
+.formControl{
+    width:70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen
+and (min-device-width : 320px) and (max-device-width: 374px){
+    .frm {
+        height: auto;
+        min-width: 200px;
+        margin-top: 60%;
+    }
+
+    .font{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1em;
+    }
+}
+
+
+@media only screen
+and (min-device-width : 375px) and (max-device-width: 424px){
+    .frm {
+        height: auto;
+        min-width: 200px;
+        margin-top: 50%;
+        margin-bottom: 35%;
+    }
+    .font{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2em;
+    }
+}
+
+@media only screen
+and (min-device-width : 425px) and (max-device-width: 767px){
+    .frm {
+        height: auto;
+        min-width: 200px;
+        margin-top: 50%;
+        margin-bottom: 50%;
+    }
+    .font{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2em;
+    }
+}
+
+@media only screen
+and (min-device-width : 768px) and (max-device-width : 1023px) {
+    .frm {
+        height: auto;
+        margin-top: 25%;
+        max-width: 50%;
+        margin-left: 25%;
+    }
+    .font{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2em;
+    }
+}
+
+@media only screen
+and (min-device-width : 1024px) and (max-device-width : 1439px) {
+    .frm {
+        height: auto;
+        margin-top: 20%;
+        max-width: 70%;
+        margin-left: 15%;
+    }
+    .font{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.3em;
+    }
+}
+
+@media only screen
+and (min-device-width : 1440px) and (max-device-width : 2559px) {
+    .frm {
+        height: auto;
+        margin-top: 15%;
+        max-width: 70%;
+        margin-left: 13%;
+    }
+    .font{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.3em;
+    }
 }

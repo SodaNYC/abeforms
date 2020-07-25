@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
-import { Container, Button } from "semantic-ui-react";
+import { Container, Button, Form } from "semantic-ui-react";
 import abeLogo from "./abeLogo.png";
-import styles from "./ClientSignIn.module.css";
+import styles from "./ClientSignUp.module.css";
 
 let endpoint = "http://localhost:8080";
 
@@ -111,105 +111,104 @@ class ClientSignUp extends Component {
         return (
             <Container>
                 <div className="App">
-                    <div className="container" id="registration-form">
-                        <div className="image"></div>
-                        <div className="frm">
+                        <div className={styles.frm}>
                             <img src={abeLogo} className={styles.logo}></img>
-                            <p>Please Sign Up to Your Abe Legal account</p>
-                            <form onSubmit={this.onSubmit}>
+                            <p className={styles.font}>Please Sign Up to Your Abe Legal account</p>
+                            <Form onSubmit={this.onSubmit}>
                                 <div class="form-group">
                                     {/*<h5>First Name:</h5>*/}
-                                    <div>
+                                    <div className={styles.formControl}>
                                         <input
                                             type="text"
-                                            class="form-control"
-                                            placeholder="Enter first name"
+                                            placeholder="First Name"
                                             name="FirstName"
                                             id="firstName"
                                             onChange={this.handleChange}
                                             value={FirstName || ""}
+                                            required
                                         />
                                     </div>
                                 </div>
 
+
                                 <div class="form-group">
-                                    {/*<h5>Last Name:</h5>*/}
-                                    <div>
+                                  {/*  <h5>Last Name:</h5>*/}
+                                    <div className={styles.formControl}>
                                         <input
                                             type="text"
-                                            class="form-control"
-                                            placeholder="Enter last name"
+                                            placeholder="Last Name"
                                             name="LastName"
                                             id="lastName"
                                             onChange={this.handleChange}
                                             value={LastName || ""}
+                                            required
                                         />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     {/*<h5>Email:</h5>*/}
-                                    <div>
+                                    <div className={styles.formControl}>
                                         <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Enter email"
+                                            type="email"
+                                            placeholder="Email Address"
                                             name="EmailAddress"
                                             id="emailAddress"
                                             onChange={this.handleChange}
                                             value={EmailAddress || ""}
+                                            required
                                         />
                                     </div>
                                 </div>
 
                                 <div className="form-group">
                                     {/*<h5>Cell Phone Number:</h5>*/}
-                                    <div>
+                                    <div className={styles.formControl}>
                                         <input
                                             type="text"
-                                            className="form-control"
-                                            placeholder="Enter cell phone number"
+                                            placeholder="Cell Phone Number"
                                             name="CellPhoneNumber"
                                             id="CellPhoneNumber"
                                             onChange={this.handleChange}
                                             // value={CellPhoneNumber || ""}
+                                            required
                                         />
                                     </div>
                                 </div>
 
                                 <div className="form-group">
                                     {/*<h5>Office Phone Number:</h5>*/}
-                                    <div>
+                                    <div className={styles.formControl}>
                                         <input
                                             type="text"
-                                            className="form-control"
-                                            placeholder="Enter office phone number"
+                                            placeholder="Office Phone Number"
                                             name="OfficePhoneNumber"
                                             id="OfficePhoneNumber"
                                             onChange={this.handleChange}
                                             // value={OfficePhoneNumber || ""}
+                                            required
                                         />
                                     </div>
                                 </div>
 
                                 <div className="form-group">
                                     {/*<h5>How Did You Hear About Us:</h5>*/}
-                                    <div>
+                                    <div className={styles.formControl}>
                                         <input
                                             type="text"
-                                            className="form-control"
-                                            placeholder="How Did You Hear About Us"
+                                            placeholder="How Did You Hear about Us"
                                             name="HowHear"
                                             id="HowHear"
                                             onChange={this.handleChange}
                                             value={HowHear || ""}
+                                            required
                                         />
                                     </div>
                                 </div>
 
                                 <div className="form-group">
-                                    <h5>Headshot:</h5>
-                                    <div>
+                                    <div className={styles.formControl}>
+                                    <p className={styles.fonts}>Headshot:</p>
                                         <input
                                             type="file" id="img" name="img" accept="image/*"
                                         />
@@ -218,14 +217,14 @@ class ClientSignUp extends Component {
 
                                 <div className="form-group">
                                     {/*<h5>Share your Social Media: (Instagram, Twitter, Linkdin, etc)</h5>*/}
-                                    <div>
+                                    <div className={styles.formControl}>
                                         <input
                                             type="text"
-                                            className="form-control"
-                                            placeholder="Share your Social Media: (Instagram, Twitter, Linkdin, etc)"
+                                            placeholder="Social Media"
                                             name="SocialMedia"
                                             id="SocialMedia"
                                             onChange={this.handleChange}
+                                            required
                                             // value = {SocialMedia || ''}
 
                                         />
@@ -233,31 +232,32 @@ class ClientSignUp extends Component {
                                 </div>
 
                                 <div class="form-group">
-                                    {/*<h5>Password: (Minimum 8 Characters)</h5>*/}
-                                    <div>
+
+                                    <div className={styles.formControl}>
+                                        <p className={styles.fonts}>Password (Minimum 8 Characters, 1 letter, 1 number, 1 special character):</p>
                                         <input
                                             type="password"
-                                            class="form-control"
                                             name="Password"
                                             id="Password"
-                                            placeholder='Minimum eight characters, at least one letter, one number and one special character'
+                                            placeholder='Password'
                                             onChange={this.handleChange}
                                             value={Password || ""}
+                                            required
                                         />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     {/*<h5>Retype Password: </h5>*/}
-                                    <div>
+                                    <div className={styles.formControl}>
                                         <input
                                             type="password"
-                                            class="form-control"
                                             name="RetypePassword"
                                             id="RetypePassword"
                                             placeholder='Retype the password'
                                             onChange={this.handleChange}
                                             value={RetypePassword || ""}
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -265,16 +265,16 @@ class ClientSignUp extends Component {
 
 
                                 <div class="form-group">
-                                    <Button color='yellow' size='large' className={styles.button}>Log in</Button>
+                                    <Button color='yellow' size='Huge' className={styles.button}>Log in</Button>
                                 </div>
-                                <p>
+                                <p className={styles.font}>
                                     Already a member? {" "}
                                     <a href="/clientdashboard/sign_in">Click here to log in</a>
                                 </p>
-                            </form>
+                            </Form>
                         </div>
+
                     </div>
-                </div>
             </Container>
         );
     }
