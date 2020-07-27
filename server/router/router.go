@@ -1,7 +1,7 @@
 package router
 
 import (
-	"./routes"
+	"github.com/austinlhx/abe/router/routes"
 	"github.com/gorilla/mux"
 )
 

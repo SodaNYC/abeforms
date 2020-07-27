@@ -1,9 +1,9 @@
 package services
 
 import (
-	"../domain"
-	"../models"
-	"../utils"
+	"github.com/austinlhx/abe/domain"
+	"github.com/austinlhx/abe/models"
+	"github.com/austinlhx/abe/utils"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
@@ -29,4 +29,9 @@ func GetUnassignedCase(user models.Clients) ([]primitive.M, *utils.ApplicationEr
 
 func GetAssignedCase(user models.Clients) ([]primitive.M, *utils.ApplicationError) {
 	return domain.GetAssignedCase(user)
+}
+
+
+func ScheduleMeeting(caseID string, firstTime string, secondTime string, thirdTime string) *utils.ApplicationError {
+	return domain.ScheduleMeeting(caseID, firstTime, secondTime, thirdTime)
 }

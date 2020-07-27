@@ -1,9 +1,9 @@
 package services
 
 import (
-	"../domain"
-	"../models"
-	"../utils"
+	"github.com/austinlhx/abe/domain"
+	"github.com/austinlhx/abe/models"
+	"github.com/austinlhx/abe/utils"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 

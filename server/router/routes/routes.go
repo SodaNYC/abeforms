@@ -3,7 +3,7 @@ package routes
 import (
 	"net/http"
 
-	"../../middleware"
+	"github.com/austinlhx/abe/middleware"
 	"github.com/gorilla/mux"
 )
 

@@ -8,9 +8,9 @@ import (
 	"net/smtp"
 	"strconv"
 
-	"../database"
-	"../models"
-	"../utils"
+	"github.com/austinlhx/abe/database"
+	"github.com/austinlhx/abe/models"
+	"github.com/austinlhx/abe/utils"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -25,6 +25,7 @@ func AddCase(caseInfo models.Cases) *utils.ApplicationError {
 			Code:       "internal_error",
 		}
 	}
+	log.Println(caseInfo)
 	log.Println("Claim added to DB!")
 
 	return nil

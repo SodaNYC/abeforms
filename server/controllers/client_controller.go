@@ -1,17 +1,17 @@
 package controllers
 
 import (
-	"../auth"
 	"encoding/json"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 	"log"
 	"net/http"
 	"regexp"
 	"unicode"
 
-	"../models"
-	"../services"
-	"../utils"
+	"github.com/austinlhx/abe/auth"
+	"github.com/austinlhx/abe/models"
+	"github.com/austinlhx/abe/services"
+	"github.com/austinlhx/abe/utils"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 var TypeOfUser string

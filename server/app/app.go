@@ -2,9 +2,10 @@ package app
 
 import (
 	"fmt"
-	"../router"
 	"log"
 	"net/http"
+
+	"github.com/austinlhx/abe/router"
 )
 
 func StartApp(){

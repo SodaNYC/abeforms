@@ -42,6 +42,19 @@ class ClientDashboard extends Component {
   
   }
 
+  scheduleAppointment = (id) => {
+    axios
+      .post(endpoint + "/clientdashboard/api/schedulemeeting/" + id, id, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      })
+      .then(() => {
+        this.getAssignedCase();
+        this.getUnassignedCase();
+      });
+  };
+
   getAssignedCase = () => {
     axios
       .get(endpoint + "/clientdashboard/api/assignedcases", {
@@ -91,14 +104,15 @@ class ClientDashboard extends Component {
                             <br></br>
                             Description: {item.description} <br></br>
                             Location: {item.stateofissue} <br></br>
-                            Available Times: Times go here...
+                            Available Times: {item.firsttime} <br></br> 
+                            {item.secondtime} <br></br> {item.thirdtime}
                           </p>
                         </Modal.Description>
                       </Modal.Content>
                       <Modal.Actions>
                         <NestedModal/>
-                        <Button basic color="red">
-                          Close
+                        <Button basic color="red" onClick={() => this.scheduleAppointment(item._id)}>
+                          Confirm Meeting
                         </Button>
                       </Modal.Actions>
                     </Modal>
@@ -163,7 +177,9 @@ class ClientDashboard extends Component {
                           Available Times: Times go here...
                         </Modal.Description>
                       </Modal.Content>
-                      <ModalActions></ModalActions>
+                      <ModalActions>
+                        
+                      </ModalActions>
                     </Modal>
                   </div>
                 </Card.Content>

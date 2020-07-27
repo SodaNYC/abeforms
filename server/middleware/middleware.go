@@ -1,14 +1,14 @@
 package middlewares
 
 import (
-	"../auth"
-	"../models"
-	"../utils"
+	"github.com/austinlhx/abe/auth"
+	"github.com/austinlhx/abe/models"
+	"github.com/austinlhx/abe/utils"
 	"context"
 	"log"
 	"net/http"
 
-	"../controllers"
+	"github.com/austinlhx/abe/controllers"
 )
 
 func SetMiddlewareLogger(next http.HandlerFunc) http.HandlerFunc {

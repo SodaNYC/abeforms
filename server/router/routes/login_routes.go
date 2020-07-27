@@ -3,7 +3,7 @@ package routes
 import (
 	"net/http"
 
-	"../../controllers"
+	"github.com/austinlhx/abe/controllers"
 )
 
 var loginRoutes = []Route{

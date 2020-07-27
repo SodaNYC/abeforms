@@ -11,4 +11,7 @@ type Cases struct { // This is the claims by the clients.... SO IT WOULD BE BETT
 	StateOfIssue   string             `json:"StateOfIssue,omitempty" validate:"required"`
 	LawyerAssigned string             `json:"LawyerAssigned,omitempty"`
 	Status         bool               `json:"Status,omitempty"`
+	FirstTime      string             `json:"FirstTime,omitempty"`
+	SecondTime     string             `json:"SecondTime,omitempty"`
+	ThirdTime      string             `json:"ThirdTime, omitempty"`
 }

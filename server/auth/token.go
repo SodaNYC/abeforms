@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"time"
 
-	"../models"
-	"../utils"
+	"github.com/austinlhx/abe/models"
+	"github.com/austinlhx/abe/utils"
 	"github.com/dgrijalva/jwt-go"
 )
 

@@ -11,4 +11,5 @@ type Clients struct {
 	FindHow      string             `json:"FindHow,omitempty"`
 	SocialMedia  string             `json:"SocialMedia,omitempty"`
 	Password     string             `json:"Password,omitempty"`
+	
 }

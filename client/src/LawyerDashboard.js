@@ -39,7 +39,7 @@ class LawyerDashboard extends Component {
     document.title = "Abe Dashboard"
   }
 
-  scheduleMeeting = () => {
+  scheduleMeeting = (time) => {
     //TODO: This part, Posting info
     const { selectedTime } = this.state;
     axios
@@ -114,7 +114,6 @@ class LawyerDashboard extends Component {
                             <br></br>
                             Description: {item.description} <br></br>
                             Location: {item.stateofissue} <br></br>
-                            Available Times: Times go here...
                           </p>
                         </Modal.Description>
                       </Modal.Content>
@@ -224,7 +223,8 @@ class LawyerDashboard extends Component {
                           <br></br>
                           Description: {item.description} <br></br>
                           Location: {item.stateofissue} <br></br>
-                          Available Times: Times go here...
+                          Available Times: <Button onClick={() => this.scheduleMeeting(item.firsttime)}>{item.firsttime}</Button> <br></br> 
+                            <Button onClick={() => this.scheduleMeeting(item.secondtime)}>{item.secondtime}</Button> <br></br> <Button onClick={() => this.scheduleMeeting(item.thirdtime)}>{item.thirdtime}</Button>
                         </Modal.Description>
                       </Modal.Content>
                       

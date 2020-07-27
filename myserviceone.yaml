@@ -1,9 +1,9 @@
 runtime: go114  # or go113 or go114 for Go 1.13 or Go 1.14 (beta)
-
+service: backend
 instance_class: F2
 
 env_variables:
-  BUCKET_NAME: "example-gcs-bucket"
+  BUCKET_NAME: "abewebsite"
 
 handlers:
 - url: /stylesheets
@@ -15,3 +15,5 @@ handlers:
 
 - url: /.*
   script: auto
+
+  

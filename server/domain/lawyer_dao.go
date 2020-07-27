@@ -6,9 +6,9 @@ import (
 	"log"
 	"net/http"
 
-	"../database"
-	"../models"
-	"../utils"
+	"github.com/austinlhx/abe/database"
+	"github.com/austinlhx/abe/models"
+	"github.com/austinlhx/abe/utils"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
